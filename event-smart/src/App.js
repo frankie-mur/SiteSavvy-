@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import Header from "./components/Header";
+import Carousel from "./components/Carousel";
 import "./App.css";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
         crossorigin="anonymous"
       />
       <div className="App">
-        <header className="App-header">
+        <Header />
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             <code>src/App.js</code> and save to reload.
@@ -25,7 +27,7 @@ function App() {
           >
             Learn React
           </a>
-        </header>
+        </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
@@ -137,7 +139,7 @@ function App() {
           fringilla. Tincidunt arcu non sodales neque. Tristique sollicitudin
           nibh sit amet commodo. Etiam dignissim diam quis enim.
         </p>
-        <Header />
+        <Carousel />
       </div>
     </>
   );
