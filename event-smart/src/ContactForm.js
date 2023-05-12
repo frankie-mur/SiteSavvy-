@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Spinner } from "react-bootstrap";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -9,11 +9,14 @@ const ContactForm = () => {
     typeOfEvent: "",
     email: "",
     phoneNumber: "",
-    find: "",
+    howDidYouFind: "",
     details: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let response = await fetch("http://localhost:5001/contact", {
       method: "POST",
@@ -21,8 +24,11 @@ const ContactForm = () => {
         "Content-Type": "application/json;charset=utf-8",
       },
       body: JSON.stringify(formData),
+    }).catch((err) => {
+      console.error(err);
     });
     let result = await response.json();
+    setLoading(false);
     alert(result.status);
   };
   return (
@@ -62,13 +68,13 @@ const ContactForm = () => {
           }
         >
           <option value="">-- Select type of event --</option>
-          <option value="option1">Bar Mitzvah</option>
-          <option value="option2">Bat Mitzvah</option>
-          <option value="option3">School Event</option>
-          <option value="option3">Wedding</option>
-          <option value="option3">Corporate</option>
-          <option value="option3">Holiday</option>
-          <option value="option3">Other</option>
+          <option value="Bar Mitzvah">Bar Mitzvah</option>
+          <option value="Bat Mitzvah">Bat Mitzvah</option>
+          <option value="School Event">School Event</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Corporate">Corporate</option>
+          <option value="Holiday">Holiday</option>
+          <option value="Other">Other</option>
         </Form.Select>
       </Form.Group>
 
@@ -131,8 +137,14 @@ const ContactForm = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
+      <Button variant="primary" type="submit" disabled={loading}>
+        {loading ? (
+          <>
+            <Spinner animation="border" size="sm" /> Sending...
+          </>
+        ) : (
+          "Submit"
+        )}
       </Button>
     </Form>
   );

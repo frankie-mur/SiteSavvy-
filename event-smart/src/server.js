@@ -12,8 +12,8 @@ app.listen(5001, () => console.log("Server Running"));
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "........@gmail.com",
-    pass: "some_password",
+    user: "@gmail.com",
+    pass: "",
   },
 });
 
@@ -32,18 +32,18 @@ router.post("/contact", (req, res) => {
   const typeOfEvent = req.body.typeOfEvent;
   const email = req.body.email;
   const phoneNumber = req.body.phoneNumber;
-  const howDidYouFind = req.body.find;
+  const howDidYouFind = req.body.howDidYouFind;
   const details = req.body.details;
   const mail = {
     from: email,
-    to: "frankidatank@gmail.com",
+    to: "@gmail.com",
     subject: "Event Inquiry",
     html: `<p>Name: ${firstName + " " + lastName}</p>
            <p>Email: ${email}</p>
            <p>Date of Event: ${dateOfEvent}</p>
            <p>Phone number: ${phoneNumber}<p>
            <p>How they found us: ${howDidYouFind}<p>
-           <p>Type of event: ${typeOfEvent}
+           <p>Type of event: ${typeOfEvent}<p>
            <p>Message: ${details}</p>`,
   };
   contactEmail.sendMail(mail, (error) => {
