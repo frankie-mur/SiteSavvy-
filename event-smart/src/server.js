@@ -26,18 +26,25 @@ contactEmail.verify((error) => {
 });
 
 router.post("/contact", (req, res) => {
-  const name = req.body.name;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const dateOfEvent = req.body.dateOfEvent;
+  const typeOfEvent = req.body.typeOfEvent;
   const email = req.body.email;
-  const message = req.body.message;
-  const subject = req.body.subject;
+  const phoneNumber = req.body.phoneNumber;
+  const howDidYouFind = req.body.find;
+  const details = req.body.details;
   const mail = {
-    from: name,
+    from: email,
     to: "frankidatank@gmail.com",
-    subject: "Contact Form Submission",
-    html: `<p>Name: ${name}</p>
+    subject: "Event Inquiry",
+    html: `<p>Name: ${firstName + " " + lastName}</p>
            <p>Email: ${email}</p>
-           <p>Subject: ${subject}</p>
-           <p>Message: ${message}</p>`,
+           <p>Date of Event: ${dateOfEvent}</p>
+           <p>Phone number: ${phoneNumber}<p>
+           <p>How they found us: ${howDidYouFind}<p>
+           <p>Type of event: ${typeOfEvent}
+           <p>Message: ${details}</p>`,
   };
   contactEmail.sendMail(mail, (error) => {
     if (error) {
