@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import "./App.css";
+import eSmart from './image/Sponsors1.png';
 
 function App() {
   return (
@@ -14,20 +15,8 @@ function App() {
       />
       <div className="App">
         <Header />
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </div>
+        {/* /Users/isaiahgraham/Downloads/EventSmart/event-smart/src/components/Sponsors1.png */}
+        <img src={eSmart} />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
