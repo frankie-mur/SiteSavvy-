@@ -15,8 +15,7 @@ function App() {
       />
       <div className="App">
         <Header />
-        {/* /Users/isaiahgraham/Downloads/EventSmart/event-smart/src/components/Sponsors1.png */}
-        <img src={eSmart} />
+        <Carousel />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
@@ -128,7 +127,6 @@ function App() {
           fringilla. Tincidunt arcu non sodales neque. Tristique sollicitudin
           nibh sit amet commodo. Etiam dignissim diam quis enim.
         </p>
-        <Carousel />
       </div>
     </>
   );
