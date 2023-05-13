@@ -1,8 +1,6 @@
-import logo from "./logo.svg";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import "./App.css";
-import eSmart from './image/Sponsors1.png';
 
 function App() {
   return (
