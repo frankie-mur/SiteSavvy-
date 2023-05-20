@@ -5,44 +5,45 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header() {
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-
-    if (currentScrollPos > prevScrollPos && currentScrollPos > 200) {
-      setVisible(false);
-      console.log("The nav is ", visible);
-    } else {
-      setVisible(true);
-      console.log("The nav is ", visible);
-    }
-
-    setPrevScrollPos(currentScrollPos);
-  };
+     const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
+      if(prevScrollPos < currentScrollPos && currentScrollPos > 200){
+        setVisible(false);
+      }
+      else { setVisible(true); }
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos, visible]);
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">Event Smart Productions</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="/Services">Our Services</Nav.Link>
-            <Nav.Link href="#performers">Performers</Nav.Link>
-            <Nav.Link href="/EventElements">Event Elements</Nav.Link>
-            <Nav.Link href="#socials">Socials</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+  <>
+    {visible && (
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">Event Smart Productions</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="/Services">Our Services</Nav.Link>
+              <Nav.Link href="#performers">Performers</Nav.Link>
+              <Nav.Link href="/EventElements">Event Elements</Nav.Link>
+              <Nav.Link href="#socials">Socials</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    )}
+</>
   );
 }
 
