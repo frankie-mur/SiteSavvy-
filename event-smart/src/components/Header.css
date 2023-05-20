@@ -1,0 +1,19 @@
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.hide {
+  top: -56px;
+}
+
+#header-img {
+  padding-top: 400px;
+}
+
+#header-text {
+  padding-left: 10px;
+}
