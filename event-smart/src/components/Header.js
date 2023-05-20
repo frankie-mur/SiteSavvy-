@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Header.css';
 
 function Header() {
      const [visible, setVisible] = useState(true);
@@ -27,12 +27,12 @@ function Header() {
   return (
   <>
     {visible && (
-      <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand href="#home">Event Smart Productions</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto ">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="/Services">Our Services</Nav.Link>
               <Nav.Link href="#performers">Performers</Nav.Link>
