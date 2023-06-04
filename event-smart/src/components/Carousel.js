@@ -17,7 +17,7 @@ import home_image10 from '../home_images/IMG_5905.JPG-1024x267.jpeg';
 
 function CarouselItem() {
   return (
-    <Carousel className='mb-5'>
+    <Carousel className='mt-3 mb-5'>
       <Carousel.Item>
         <img
           className="d-block w-100"

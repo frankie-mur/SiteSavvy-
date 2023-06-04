@@ -27,7 +27,7 @@ function Header() {
   return (
   <>
     {visible && (
-        <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+        <Navbar className="mb-5" bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand href="#home">Event Smart Productions</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
