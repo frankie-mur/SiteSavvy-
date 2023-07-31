@@ -5,7 +5,13 @@ import Performers from './Performers';
 
 
 function Home() {
-    return (
+    return (<>
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
+      />
         <div className="App">
         <Header />
         <h3 className="mt-8">Need some space</h3>
@@ -123,6 +129,7 @@ function Home() {
         </p>
         <Performers />
       </div>
+      </>
     )
 }
 
